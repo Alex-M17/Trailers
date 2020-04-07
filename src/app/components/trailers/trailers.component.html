@@ -1,0 +1,67 @@
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+
+<div class="container" id="hide" ng-app="paginationApp" ng-controller="paginationController">
+    <div class="">
+        <div class="row text-center justify-content-center">
+            <div class="col-md-7 mt-4">
+                <input class="form-control mr-sm-0 text-light" name="SearchPost" [(ngModel)]="SearchPost" style="background: #00000094; border: none;" type="search" id="searchBar" placeholder="Search" aria-label="Search">
+            </div>
+            <div>
+                <div *ngFor="let trailer of trailersArr | search:SearchPost | paginate: { itemsPerPage: 6, currentPage: p };" class="col-md-4">
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="card-img-top" src="{{ trailer.imgUrl }}" height="200">
+                            <button (click)="onClick(trailer.id-1)" class="btn btn-light rounded-circle middle btn-lg pl-3">
+                                <i class="fa fa-play text ml-1 mt-2 mb-2"></i> 
+                            </button>
+                        </div> 
+                        <div class="card-body">
+                            <h5 class="card-title mb-4">{{ trailer.title }}</h5>
+                            <span class="badge badge-danger mr-2" style="font-size: large;">{{trailer.genero}}</span>
+                            <span class="badge badge-info" style="font-size: large;">{{ trailer.year }}</span>
+                
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+    
+    
+    <nav class="navbar justify-content-center" style="font-weight: bold; font-family: Roboto;">
+        <pagination-controls class="pt-3 pr-5"
+            autoHide="true"
+            responsive="true"
+            previousLabel=""
+            nextLabel=""
+            (pageChange)="p = $event"></pagination-controls>
+    </nav>
+    
+    
+
+    <!--<ul class="carousel-indicators" style="position: static;">
+        <li><a class="btn btn-primary" data-slide="prev" href="#demo">&#8249;</a></li>
+
+        <li><a class="page-link" data-slide-to="0" data-target="#demo">1</a></li>
+        <li><a class="page-link" data-slide-to="1" data-target="#demo">2</a></li>
+        <li><a class="page-link" data-slide-to="2" data-target="#demo">3</a></li>
+    
+        <li><a class="btn btn-primary" data-slide="next" href="#demo">&#8250;</a></li>
+        
+    </ul>-->
+
+            
+            
+       
+    
+</div>

@@ -2,6 +2,10 @@
   position: relative;
 }
 
+.card{
+  min-width: 350px;
+}
+
 img {
   opacity: 1; 
   transition: transform .5s ease;
@@ -20,11 +24,15 @@ img {
 }
 
 .card-image:hover img {
-  opacity: 0.35;
+  opacity: 0.6;
 }
 
 .card-image:hover .middle {
   opacity: 1;
+}
+
+.col-md-4{
+  display: inline-block;
 }
 
 .card{
@@ -51,5 +59,3 @@ img:hover{
   transform: scale(1.1);
   color: #4e4e4e;
 }
-
-
