@@ -23,10 +23,10 @@ export class TrailersComponent extends AppComponent implements OnInit  {
     }
   } 
 
-  onClick(index: number){ 
-    let url = (this.trailersArr[index].url.includes('https://www.youtube.com/watch?v='))
-              ? this.trailersArr[index].url.replace('https://www.youtube.com/watch?v=', 'https://www.youtube.com/embed/') 
-              : this.trailersArr[index].url;
+  onClick(src: string){
+    let url = (src.includes('https://www.youtube.com/watch?v='))
+              ? src.replace('https://www.youtube.com/watch?v=', 'https://www.youtube.com/embed/') 
+              : src;
 
     let IframeHtml: string = '<iframe width="100%" height="500" src="'+ url + 
                          '?autoplay=1" frameborder="1" style="background: #000" allow="accelerometer; \
